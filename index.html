@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Template Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="variant2-styles.css">
+</head>
+<body>
+    <div class="notion-layout">
+        <!-- Left Sidebar -->
+        <aside class="notion-sidebar">
+            <!-- Workspace Name -->
+            <div class="workspace-header">
+                <svg class="workspace-icon" width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.3965 1.04045C13.6034 0.93694 13.9143 1.00602 14.6729 1.55705L17.8096 3.76213C18.3272 4.14126 18.5 4.24443 18.5 4.65764V16.7514C18.5 17.5092 18.2239 17.9572 17.2588 18.0258L5.8457 18.7153C5.12108 18.7498 4.77597 18.6462 4.39648 18.1635L2.08594 15.1664C1.67207 14.6148 1.50006 14.202 1.5 13.7192V2.96916C1.50007 2.34954 1.77621 1.83281 2.56836 1.76409L12.3965 1.04045ZM16.7754 5.03655L5.56836 5.69182C5.15518 5.72669 5.01758 5.93364 5.01758 6.38127V16.6479C5.01762 17.1996 5.2935 17.4056 5.91406 17.3715L16.6377 16.7514C17.2585 16.7172 17.3271 16.3373 17.3271 15.8891V5.69182C17.3271 5.24434 17.1554 5.00213 16.7754 5.03655ZM15.6035 6.93108C15.6723 7.24148 15.6039 7.55245 15.293 7.58733L14.7764 7.68987V15.2699C14.3278 15.511 13.914 15.6488 13.5693 15.6489C13.0174 15.6489 12.8792 15.4759 12.4658 14.9594L9.08594 9.65373V14.7875L10.1553 15.0287C10.1553 15.0332 10.1517 15.6489 9.29199 15.6489L6.91406 15.7865C6.84496 15.6486 6.914 15.3048 7.15527 15.2358L7.77539 15.0629V8.2758L6.91406 8.20647C6.8451 7.8961 7.01707 7.44924 7.5 7.41448L10.0518 7.24162L13.5693 12.6166V7.86174L12.6729 7.7592C12.604 7.37983 12.8789 7.10402 13.2236 7.06975L15.6035 6.93108ZM12.8105 2.0053L3.3623 2.69377C3.01777 2.72794 2.94876 2.9004 3.08594 3.0385L4.43164 4.10686C4.98274 4.55453 5.18969 4.52063 6.22461 4.45159L15.9824 3.86565C16.1892 3.86557 16.0172 3.65874 15.9482 3.62444L14.3271 2.45354C14.0166 2.21249 13.6034 1.93626 12.8105 2.0053Z" fill="#484743"/>
+                </svg>
+                <span class="workspace-name">My workspace</span>
+                <svg class="workspace-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <!-- Top Tabs -->
+            <div class="sidebar-tabs">
+                <button class="tab-btn active" data-tab="home">
+                    <img src="assets/navhome.svg" width="20" height="20" alt="Home">
+                    <span class="tab-name">Home</span>
+                </button>
+                <button class="tab-btn" data-tab="chat">
+                    <img src="assets/navchat.svg" width="20" height="20" alt="Chat">
+                    <span class="tab-name">Chat</span>
+                </button>
+                <button class="tab-btn" data-tab="calendar">
+                    <img src="assets/navcalendar.svg" width="20" height="20" alt="Calendar">
+                    <span class="tab-name">Calendar</span>
+                </button>
+                <button class="tab-btn" data-tab="inbox">
+                    <img src="assets/navinbox.svg" width="20" height="20" alt="Inbox">
+                    <span class="tab-name">Inbox</span>
+                    <span class="tab-badge">5</span>
+                </button>
+                <button class="tab-btn" data-tab="search">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="9" cy="9" r="6"/>
+                        <path d="M13.5 13.5L17 17"/>
+                    </svg>
+                    <span class="tab-name">Search</span>
+                </button>
+            </div>
+
+            <div class="sidebar-top">
+                <!-- Home Tab Content -->
+                <div class="tab-content" id="homeContent">
+                    <!-- Recents Section -->
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-title">Recents</span>
+                        </div>
+                        <div id="recentTemplates">
+                            <div class="sidebar-item active" id="currentPage">
+                                <span class="item-icon" id="currentPageIcon">📄</span>
+                                <span class="item-text" id="currentPageName">Getting Started</span>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="item-icon">📝</span>
+                                <span class="item-text">Meeting Notes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favorites Section -->
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-title">Favorites</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="item-icon">⭐</span>
+                            <span class="item-text">Project Dashboard</span>
+                        </div>
+                    </div>
+
+                    <!-- Agents Section -->
+                    <div class="sidebar-section" id="agentsSection">
+                        <div class="section-header">
+                            <span class="section-title">Agents</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <img src="assets/Agent1.png" class="item-icon" width="16" height="16" style="border-radius: 3px;">
+                            <span class="item-text">Content Writer</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <img src="assets/Agent2.png" class="item-icon" width="16" height="16" style="border-radius: 3px;">
+                            <span class="item-text">Research Assistant</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <img src="assets/Agent3.png" class="item-icon" width="16" height="16" style="border-radius: 3px;">
+                            <span class="item-text">Code Helper</span>
+                        </div>
+                        <button class="more-btn" id="agentsMoreBtn">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 11.375a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75" />
+                            </svg>
+                            More
+                        </button>
+                    </div>
+
+                    <!-- Private Section -->
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-title">Private</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="item-icon">🔒</span>
+                            <span class="item-text">Personal Notes</span>
+                        </div>
+                    </div>
+
+                    <!-- Templates Section -->
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-title">Templates</span>
+                        </div>
+                        <div id="suggestedTemplates">
+                            <div class="sidebar-item" data-template="project-roadmap" onclick="navigateToTemplate('project-roadmap')" style="position: relative; z-index: 1;">
+                                <span class="item-icon" style="pointer-events: none;">📊</span>
+                                <span class="item-text" style="pointer-events: none;">Project Roadmap</span>
+                            </div>
+                            <div class="sidebar-item" data-template="meeting-notes" onclick="navigateToTemplate('meeting-notes')" style="position: relative; z-index: 1;">
+                                <span class="item-icon" style="pointer-events: none;">📝</span>
+                                <span class="item-text" style="pointer-events: none;">Meeting Notes</span>
+                            </div>
+                            <div class="sidebar-item" data-template="product-jam" onclick="navigateToTemplate('product-jam')" style="position: relative; z-index: 1;">
+                                <span class="item-icon" style="pointer-events: none;">🧠</span>
+                                <span class="item-text" style="pointer-events: none;">Product Jam</span>
+                            </div>
+                        </div>
+                        <button class="more-btn">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 11.375a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75" />
+                            </svg>
+                            More
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-bottom">
+                <button class="new-chat-btn" id="newChatBtn">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.758 9.976a1.178 1.178 0 1 0 .377-2.326 1.178 1.178 0 0 0-.377 2.326M6.547 8.97a1.178 1.178 0 1 0 .377-2.327 1.178 1.178 0 0 0-.377 2.326" />
+                            <path d="M10.573 5.554a3.917 3.917 0 0 1 6.743.035.625.625 0 1 1-1.08.63 2.667 2.667 0 0 0-4.591-.023l-5.398 9.015 4.192.68a.625.625 0 0 1-.2 1.233l-5.102-.827a.625.625 0 0 1-.436-.938zM4.36 3.517a3.92 3.92 0 0 1 5.572.356.625.625 0 1 1-.945.818 2.67 2.67 0 0 0-3.795-.243.625.625 0 1 1-.833-.931" />
+                        </svg>
+                        <span>New chat</span>
+                        <span class="shortcut" style="margin-left: 2px;">⌘O</span>
+                    </div>
+                </button>
+                <button class="compose-btn" id="composeBtn">
+                    <img src="assets/compose.svg" width="20" height="20" alt="Compose">
+                </button>
+            </div>
+        </aside>
+
+        <!-- Templates Panel Overlay -->
+        <div class="agents-panel-overlay" id="templatesPanelOverlay">
+            <div class="agents-panel" style="padding: 0 8px;">
+                <div class="agents-panel-header">
+                    <span class="agents-panel-title">Templates</span>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <button class="agents-panel-close" id="searchTemplatesBtn" style="padding: 4px;">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.9625 12.1938C14.6156 11.2063 15 10.0219 15 8.75C15 5.29687 12.2031 2.5 8.75 2.5C5.29687 2.5 2.5 5.29687 2.5 8.75C2.5 12.2031 5.29687 15 8.75 15C10.025 15 11.2063 14.6156 12.1938 13.9625L15.7313 17.5L17.5 15.7313L13.9625 12.1938ZM8.75 13.125C6.33437 13.125 4.375 11.1656 4.375 8.75C4.375 6.33437 6.33437 4.375 8.75 4.375C11.1656 4.375 13.125 6.33437 13.125 8.75C13.125 11.1656 11.1656 13.125 8.75 13.125Z" fill="rgba(55, 53, 47, 0.5)"/>
+                            </svg>
+                        </button>
+                        <button class="agents-panel-close" id="closeTemplatesPanelBtn">
+                            <img src="assets/arrowChevronDoubleBackward.svg" width="16" height="16" alt="Close">
+                        </button>
+                    </div>
+                </div>
+
+                <div style="padding: 0 8px; margin-bottom: 20px;">
+                    <!-- Generate New Template Section -->
+                    <div style="margin-bottom: 16px;">
+                        <div style="position: relative;">
+                            <textarea id="generateTemplateInput" placeholder="Describe the template you want to create..." style="width: 100%; box-sizing: border-box; padding: 12px 44px 12px 12px; border: 1px solid rgba(55, 53, 47, 0.16); border-radius: 6px; font-size: 13px; font-family: inherit; outline: none; resize: none; min-height: 60px; line-height: 1.5;"></textarea>
+                            <button id="generateTemplateBtn" style="position: absolute; right: 8px; bottom: 12px; background: rgba(55, 53, 47, 0.08); border: none; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.15s;">
+                                <img src="assets/arrowStraightUp.svg" alt="Generate" style="width: 14px; height: 14px;">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="category-pills-scroll" id="categoryPills" style="margin-top: 4px;">
+                        <span class="category-pill-filter active" data-category="all">For You</span>
+                        <span class="category-pill-filter" data-category="productivity">Productivity</span>
+                        <span class="category-pill-filter" data-category="project-management">Project Management</span>
+                        <span class="category-pill-filter" data-category="school">School</span>
+                    </div>
+                </div>
+
+                <div class="agents-sections">
+                    <div class="agents-section">
+                        <div class="agents-section-title">Popular in your workplace</div>
+                        <div class="template-item-wrapper">
+                            <div class="sidebar-item" data-template="team-goals-okrs" onclick="navigateToTemplate('team-goals-okrs')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                                <span class="item-icon" style="margin-top: 2px;">💼</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Team Goals & OKRs</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Track team objectives and key results</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.8</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.2K)</span>
+                                </div>
+                            </div>
+                            <div class="template-hover-preview">
+                                <img src="assets/thumbnails/Team Goals.png" class="template-preview-thumbnail" alt="Preview">
+                                <div class="template-preview-creator">
+                                    <div class="template-preview-creator-img" style="background: #e3e2e0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(55, 53, 47, 0.6); font-weight: 500;">A</div>
+                                    <span class="template-preview-creator-name">Created by Alex Johnson</span>
+                                </div>
+                                <div class="template-preview-description">
+                                    A comprehensive template to set, track, and measure team objectives and key results. Includes quarterly planning, progress tracking, and alignment tools to keep your team focused on what matters most.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-item-wrapper">
+                            <div class="sidebar-item" data-template="sprint-planning" onclick="navigateToTemplate('sprint-planning')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                                <span class="item-icon" style="margin-top: 2px;">📋</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Sprint Planning</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Plan and organize your agile sprints</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.7</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(890)</span>
+                                </div>
+                            </div>
+                            <div class="template-hover-preview">
+                                <img src="assets/thumbnails/Sprint Planning.png" class="template-preview-thumbnail" alt="Preview">
+                                <div class="template-preview-creator">
+                                    <div class="template-preview-creator-img" style="background: #e3e2e0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(55, 53, 47, 0.6); font-weight: 500;">M</div>
+                                    <span class="template-preview-creator-name">Created by Michael Torres</span>
+                                </div>
+                                <div class="template-preview-description">
+                                    Streamline your agile workflow with this sprint planning template. Features sprint backlog, story points, capacity planning, and retrospective sections to help your team deliver better results faster.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-item-wrapper">
+                            <div class="sidebar-item" data-template="weekly-status" onclick="navigateToTemplate('weekly-status')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                                <span class="item-icon" style="margin-top: 2px;">📝</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Weekly Status Report</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Share weekly progress and updates</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.9</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(2.1K)</span>
+                                </div>
+                            </div>
+                            <div class="template-hover-preview">
+                                <img src="assets/thumbnails/Weekly Status Report.png" class="template-preview-thumbnail" alt="Preview">
+                                <div class="template-preview-creator">
+                                    <div class="template-preview-creator-img" style="background: #e3e2e0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(55, 53, 47, 0.6); font-weight: 500;">E</div>
+                                    <span class="template-preview-creator-name">Created by Emma Davis</span>
+                                </div>
+                                <div class="template-preview-description">
+                                    Keep stakeholders informed with this weekly status report template. Includes sections for accomplishments, blockers, upcoming tasks, and metrics to maintain clear communication across your organization.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="more-btn">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 11.375a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75" />
+                            </svg>
+                            More
+                        </button>
+                    </div>
+
+                    <div class="agents-section">
+                        <div class="agents-section-title">Trending</div>
+                        <div class="template-item-wrapper">
+                            <div class="sidebar-item" data-template="product-launch" onclick="navigateToTemplate('product-launch')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                                <span class="item-icon" style="margin-top: 2px;">🚀</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Product Launch Plan</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Coordinate successful product releases</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.9</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.5K)</span>
+                                </div>
+                            </div>
+                            <div class="template-hover-preview">
+                                <img src="assets/thumbnails/Product Launch Plan.png" class="template-preview-thumbnail" alt="Preview">
+                                <div class="template-preview-creator">
+                                    <div class="template-preview-creator-img" style="background: #e3e2e0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(55, 53, 47, 0.6); font-weight: 500;">S</div>
+                                    <span class="template-preview-creator-name">Created by Sarah Chen</span>
+                                </div>
+                                <div class="template-preview-description">
+                                    Coordinate successful product releases with clear timelines and responsibilities.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-item-wrapper">
+                            <div class="sidebar-item" data-template="brainstorm" onclick="navigateToTemplate('brainstorm')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                                <span class="item-icon" style="margin-top: 2px;">💡</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Brainstorm Session</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Capture and organize creative ideas</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.6</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(980)</span>
+                                </div>
+                            </div>
+                            <div class="template-hover-preview">
+                                <img src="assets/thumbnails/Brainstorm Session.png" class="template-preview-thumbnail" alt="Preview">
+                                <div class="template-preview-creator">
+                                    <div class="template-preview-creator-img" style="background: #e3e2e0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(55, 53, 47, 0.6); font-weight: 500;">A</div>
+                                    <span class="template-preview-creator-name">Created by Alex Kumar</span>
+                                </div>
+                                <div class="template-preview-description">
+                                    Capture and organize creative ideas from the team.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-item-wrapper">
+                            <div class="sidebar-item" data-template="growth-strategy" onclick="navigateToTemplate('growth-strategy')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                                <span class="item-icon" style="margin-top: 2px;">📈</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Growth Strategy</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Plan your business growth initiatives</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.7</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.1K)</span>
+                                </div>
+                            </div>
+                            <div class="template-hover-preview">
+                                <img src="assets/thumbnails/Growth Strategy.png" class="template-preview-thumbnail" alt="Preview">
+                                <div class="template-preview-creator">
+                                    <div class="template-preview-creator-img" style="background: #e3e2e0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(55, 53, 47, 0.6); font-weight: 500;">M</div>
+                                    <span class="template-preview-creator-name">Created by Maria Garcia</span>
+                                </div>
+                                <div class="template-preview-description">
+                                    Plan your business growth initiatives with clear metrics and tactics.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="more-btn">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 11.375a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75" />
+                            </svg>
+                            More
+                        </button>
+                    </div>
+
+                    <div class="agents-section">
+                        <div class="agents-section-title">Productivity</div>
+                        <div class="template-item-wrapper">
+                            <div class="sidebar-item" data-template="todo-list" onclick="navigateToTemplate('todo-list')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                                <span class="item-icon" style="margin-top: 2px;">✅</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">To-Do List</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Organize and prioritize your tasks</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.9</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(3.2K)</span>
+                                </div>
+                            </div>
+                            <div class="template-hover-preview">
+                                <img src="assets/thumbnails/Todo List.png" class="template-preview-thumbnail" alt="Preview">
+                                <div class="template-preview-creator">
+                                    <div class="template-preview-creator-img" style="background: #e3e2e0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(55, 53, 47, 0.6); font-weight: 500;">T</div>
+                                    <span class="template-preview-creator-name">Created by Taylor Smith</span>
+                                </div>
+                                <div class="template-preview-description">
+                                    Simple yet powerful task management with priorities, due dates, and categories.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-item-wrapper">
+                            <div class="sidebar-item" data-template="daily-planner" onclick="navigateToTemplate('daily-planner')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                                <span class="item-icon" style="margin-top: 2px;">📅</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Daily Planner</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Structure your day for maximum productivity</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.8</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(2.5K)</span>
+                                </div>
+                            </div>
+                            <div class="template-hover-preview">
+                                <img src="assets/thumbnails/Daily Planner.png" class="template-preview-thumbnail" alt="Preview">
+                                <div class="template-preview-creator">
+                                    <div class="template-preview-creator-img" style="background: #e3e2e0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(55, 53, 47, 0.6); font-weight: 500;">R</div>
+                                    <span class="template-preview-creator-name">Created by Rachel Kim</span>
+                                </div>
+                                <div class="template-preview-description">
+                                    Plan your day hour by hour with time blocking and goal tracking.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-item" data-template="goal-tracker" onclick="navigateToTemplate('goal-tracker')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                            <span class="item-icon" style="margin-top: 2px;">🎯</span>
+                            <div style="flex: 1; min-width: 0;">
+                                <div class="agent-list-name">Goal Tracker</div>
+                                <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Monitor progress toward your objectives</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                <span style="font-size: 11px; font-weight: 500;">4.7</span>
+                                <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.8K)</span>
+                            </div>
+                        </div>
+                        <button class="more-btn">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 11.375a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75" />
+                            </svg>
+                            More
+                        </button>
+                    </div>
+
+                    <div class="agents-section">
+                        <div class="agents-section-title">Project Management</div>
+                        <div class="sidebar-item" data-template="project-roadmap" onclick="navigateToTemplate('project-roadmap')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px; cursor: pointer; position: relative; z-index: 1;">
+                            <span class="item-icon" style="margin-top: 2px; pointer-events: none;">📊</span>
+                            <div style="flex: 1; min-width: 0; pointer-events: none;">
+                                <div class="agent-list-name">Project Roadmap</div>
+                                <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Visualize project timeline and milestones</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px; pointer-events: none;">
+                                <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                <span style="font-size: 11px; font-weight: 500;">4.8</span>
+                                <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(2.3K)</span>
+                            </div>
+                        </div>
+                        <div class="sidebar-item" data-template="task-board" onclick="navigateToTemplate('task-board')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                            <span class="item-icon" style="margin-top: 2px;">🗂️</span>
+                            <div style="flex: 1; min-width: 0;">
+                                <div class="agent-list-name">Task Board</div>
+                                <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Kanban-style task management system</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                <span style="font-size: 11px; font-weight: 500;">4.8</span>
+                                <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(2.2K)</span>
+                            </div>
+                        </div>
+                        <div class="sidebar-item" data-template="meeting-notes" onclick="navigateToTemplate('meeting-notes')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px; cursor: pointer; position: relative; z-index: 1;">
+                            <span class="item-icon" style="margin-top: 2px; pointer-events: none;">📝</span>
+                            <div style="flex: 1; min-width: 0; pointer-events: none;">
+                                <div class="agent-list-name">Meeting Notes</div>
+                                <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Document meeting discussions and actions</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px; pointer-events: none;">
+                                <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                <span style="font-size: 11px; font-weight: 500;">4.9</span>
+                                <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(3.1K)</span>
+                            </div>
+                        </div>
+                        <button class="more-btn">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 11.375a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75" />
+                            </svg>
+                            More
+                        </button>
+                    </div>
+
+                    <div class="agents-section">
+                        <div class="agents-section-title">School</div>
+                        <div class="sidebar-item" data-template="class-notes" onclick="navigateToTemplate('class-notes')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                            <span class="item-icon" style="margin-top: 2px;">📚</span>
+                            <div style="flex: 1; min-width: 0;">
+                                <div class="agent-list-name">Class Notes</div>
+                                <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Take and organize lecture notes</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                <span style="font-size: 11px; font-weight: 500;">4.9</span>
+                                <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(2.8K)</span>
+                            </div>
+                        </div>
+                        <div class="sidebar-item" data-template="assignment-tracker" onclick="navigateToTemplate('assignment-tracker')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                            <span class="item-icon" style="margin-top: 2px;">✏️</span>
+                            <div style="flex: 1; min-width: 0;">
+                                <div class="agent-list-name">Assignment Tracker</div>
+                                <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Keep track of homework and deadlines</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                <span style="font-size: 11px; font-weight: 500;">4.8</span>
+                                <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(2.3K)</span>
+                            </div>
+                        </div>
+                        <div class="sidebar-item" data-template="study-schedule" onclick="navigateToTemplate('study-schedule')" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px;">
+                            <span class="item-icon" style="margin-top: 2px;">🎓</span>
+                            <div style="flex: 1; min-width: 0;">
+                                <div class="agent-list-name">Study Schedule</div>
+                                <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Plan your study sessions effectively</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                <span style="font-size: 11px; font-weight: 500;">4.7</span>
+                                <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.9K)</span>
+                            </div>
+                        </div>
+                        <button class="more-btn">
+                            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 11.375a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75" />
+                            </svg>
+                            More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agents Panel Overlay -->
+        <div class="agents-panel-overlay" id="agentsPanelOverlay">
+            <div class="agents-panel" style="padding: 0 8px;">
+                <div class="agents-panel-header">
+                    <span class="agents-panel-title">Agents</span>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <button class="agents-panel-close" id="searchAgentsBtn" style="padding: 4px;">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.9625 12.1938C14.6156 11.2063 15 10.0219 15 8.75C15 5.29687 12.2031 2.5 8.75 2.5C5.29687 2.5 2.5 5.29687 2.5 8.75C2.5 12.2031 5.29687 15 8.75 15C10.025 15 11.2063 14.6156 12.1938 13.9625L15.7313 17.5L17.5 15.7313L13.9625 12.1938ZM8.75 13.125C6.33437 13.125 4.375 11.1656 4.375 8.75C4.375 6.33437 6.33437 4.375 8.75 4.375C11.1656 4.375 13.125 6.33437 13.125 8.75C13.125 11.1656 11.1656 13.125 8.75 13.125Z" fill="rgba(55, 53, 47, 0.5)"/>
+                            </svg>
+                        </button>
+                        <button class="agents-panel-close" id="closeAgentsPanelBtn">
+                            <img src="assets/arrowChevronDoubleBackward.svg" width="16" height="16" alt="Close">
+                        </button>
+                    </div>
+                </div>
+
+                <div style="padding: 0 8px; margin-bottom: 20px;">
+                    <!-- Generate New Agent Section -->
+                    <div style="margin-bottom: 16px;">
+                        <div style="position: relative;">
+                            <textarea id="generateAgentInput" placeholder="Describe the agent you want to create..." style="width: 100%; box-sizing: border-box; padding: 12px 44px 12px 12px; border: 1px solid rgba(55, 53, 47, 0.16); border-radius: 6px; font-size: 13px; font-family: inherit; outline: none; resize: none; min-height: 60px; line-height: 1.5;"></textarea>
+                            <button id="generateAgentBtn" style="position: absolute; right: 8px; bottom: 12px; background: rgba(55, 53, 47, 0.08); border: none; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.15s;">
+                                <img src="assets/arrowStraightUp.svg" alt="Generate" style="width: 14px; height: 14px;">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="category-pills-scroll" id="agentCategoryPills" style="margin-top: 4px; margin-bottom: 24px;">
+                        <span class="category-pill-filter active" data-category="all">For You</span>
+                        <span class="category-pill-filter" data-category="productivity">Productivity</span>
+                        <span class="category-pill-filter" data-category="content">Content</span>
+                        <span class="category-pill-filter" data-category="automation">Automation</span>
+                    </div>
+
+                    <div class="agents-sections" style="padding: 0;">
+                        <div class="agents-section">
+                            <div class="agents-section-title" style="margin-bottom: 8px;">Popular agents</div>
+                            <div class="sidebar-item" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 0;">
+                                <img src="assets/Agent1.png" class="item-icon" width="24" height="24" style="border-radius: 4px; margin-top: 2px;">
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Content Writer</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Generate and refine content</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.9</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(2.3K)</span>
+                                </div>
+                            </div>
+                            <div class="sidebar-item" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 0;">
+                                <img src="assets/Agent2.png" class="item-icon" width="24" height="24" style="border-radius: 4px; margin-top: 2px;">
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Research Assistant</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Find and summarize information</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.8</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.9K)</span>
+                                </div>
+                            </div>
+                            <div class="sidebar-item" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 0;">
+                                <img src="assets/Agent3.png" class="item-icon" width="24" height="24" style="border-radius: 4px; margin-top: 2px;">
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Code Helper</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Debug and explain code</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.7</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.5K)</span>
+                                </div>
+                            </div>
+                            <div class="sidebar-item" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 0;">
+                                <img src="assets/Agent1.png" class="item-icon" width="24" height="24" style="border-radius: 4px; margin-top: 2px;">
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Task Manager</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Organize and prioritize tasks</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.6</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.2K)</span>
+                                </div>
+                            </div>
+                            <div class="sidebar-item" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 0;">
+                                <img src="assets/Agent2.png" class="item-icon" width="24" height="24" style="border-radius: 4px; margin-top: 2px;">
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Meeting Scheduler</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Find optimal meeting times</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.8</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(2.1K)</span>
+                                </div>
+                            </div>
+                            <div class="sidebar-item" style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 0;">
+                                <img src="assets/Agent3.png" class="item-icon" width="24" height="24" style="border-radius: 4px; margin-top: 2px;">
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="agent-list-name">Data Analyzer</div>
+                                    <div style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-top: 2px;">Analyze and visualize data</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 3px; flex-shrink: 0; margin-top: 2px;">
+                                    <span style="color: rgba(55, 53, 47, 0.4); font-size: 12px;">★</span>
+                                    <span style="font-size: 11px; font-weight: 500;">4.9</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.4);">(1.8K)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="notion-editor" id="notionEditor">
+            <div class="editor-content" id="templateContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </main>
+
+        <!-- Fixed Icons Overlay -->
+        <div class="banner-icons-overlay" id="bannerIconsOverlay">
+            <button class="banner-icon-btn" id="slidersIconOverlay">
+                <img src="assets/sliders.svg" width="18" height="18">
+                <span style="font-size: 14px; color: rgba(55, 53, 47, 0.8); margin-left: 6px;">Settings</span>
+            </button>
+            <div style="width: 1px; height: 16px; background: #F0EFED;"></div>
+            <button class="banner-text-btn" id="shareTextBtn">
+                Share
+            </button>
+            <button class="banner-icon-btn" id="favoriteIconBtn">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2L12.163 7.515L18 8.265L13.91 12.135L15.027 18L10 15.515L4.973 18L6.09 12.135L2 8.265L7.837 7.515L10 2Z" stroke="rgb(55, 53, 47)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="banner-icon-btn" id="ellipsisBtn">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 11.375a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m6 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75m-12 0a1.375 1.375 0 1 0 0-2.75 1.375 1.375 0 0 0 0 2.75"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Settings Panel -->
+        <aside class="settings-panel" id="settingsPanel">
+            <div class="settings-panel-header">
+                <span class="settings-panel-title">Template</span>
+                <img src="assets/arrowUTurnUpLeft.svg" width="14" height="14" style="opacity: 0.5;">
+                <span class="settings-unsaved-edits">3 unsaved edits</span>
+                <button class="settings-save-btn">Save</button>
+            </div>
+            <div class="settings-panel-content">
+                <div class="customize-search-wrapper">
+                    <div class="customize-search-container">
+                        <textarea class="customize-search-input" placeholder="Edit this template or replace content..." rows="2"></textarea>
+                        <button class="customize-send-button">
+                            <img src="assets/arrowStraightUp.svg" alt="Send" class="customize-send-arrow">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat conversation (hidden initially) -->
+                <div class="ai-chat-conversation" id="aiChatConversation" style="display: none;">
+                    <div class="ai-chat-messages" id="aiChatMessages"></div>
+                </div>
+
+                <!-- Settings sections wrapper (visible initially) -->
+                <div class="settings-sections-wrapper" id="settingsSectionsWrapper">
+                <div class="settings-section">
+                    <div class="settings-section-title">Template creator</div>
+                    <div class="template-info-creator" style="margin-bottom: 0;">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="template-info-creator-img">
+                        <span class="template-info-creator-name" id="settingsCreatorName">Sarah Chen</span>
+                        <span class="creator-badge">External</span>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-section-title">Categories</div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                        <span class="category-pill">Project Management</span>
+                        <span class="category-pill">Planning</span>
+                        <span class="category-pill">Collaboration</span>
+                        <span class="category-pill">Productivity</span>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-section-title">About template</div>
+                    <div class="template-description">
+                        This project roadmap template helps teams plan, track, and visualize their product development timeline. Built for cross-functional collaboration, it includes milestone tracking, resource allocation, and progress monitoring to keep everyone aligned on your strategic goals.
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-section-title">Features</div>
+                    <div class="settings-section-description">Key features and capabilities of this template</div>
+                    <div class="feature-toggles">
+                        <div class="feature-toggle-item">
+                            <span class="feature-toggle-label">Timeline view</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="feature-toggle-item">
+                            <span class="feature-toggle-label">Milestone tracking</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="feature-toggle-item">
+                            <span class="feature-toggle-label">Resource allocation</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="feature-toggle-item">
+                            <span class="feature-toggle-label">Progress indicators</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="feature-toggle-item">
+                            <span class="feature-toggle-label">Dependency mapping</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-section-title">Integrations</div>
+                    <div class="settings-section-description">Connect this template with your favorite tools</div>
+                    <div class="integrations-list">
+                        <div class="integration-item">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="assets/slacklogo.png" style="width: 24px; height: 24px; border-radius: 4px;" alt="Slack">
+                                <span class="integration-name">Slack</span>
+                            </div>
+                            <button class="integration-connect-btn">Connect</button>
+                        </div>
+                        <div class="integration-item">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="assets/githublogo.svg" style="width: 24px; height: 24px; border-radius: 4px;" alt="GitHub">
+                                <span class="integration-name">GitHub</span>
+                            </div>
+                            <button class="integration-connect-btn">Connect</button>
+                        </div>
+                        <div class="integration-item">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="assets/googlecalendarlogo.png" style="width: 24px; height: 24px; border-radius: 4px;" alt="Google Calendar">
+                                <span class="integration-name">Google Calendar</span>
+                            </div>
+                            <button class="integration-connect-btn">Connect</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-section-title">Help</div>
+                    <div class="settings-section-description">Get help with using this template</div>
+                    <div class="help-callout">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" stroke="rgba(55, 53, 47, 0.5)" stroke-width="1.5"/>
+                                <path d="M10 14V10M10 7H10.01" stroke="rgba(55, 53, 47, 0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span style="font-size: 13px; font-weight: 600; color: rgb(55, 53, 47);">Need help?</span>
+                        </div>
+                        <p style="font-size: 13px; color: rgba(55, 53, 47, 0.7); line-height: 1.5; margin: 0 0 12px 0;">
+                            Connect with a Notion expert to customize this template for your team's specific needs.
+                        </p>
+                        <button class="help-connect-btn">Connect with an expert</button>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-section-title">Ratings & Reviews</div>
+                    <div class="settings-section-description">See what others are saying</div>
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" class="review-avatar">
+                                <div style="flex: 1;">
+                                    <div class="review-author-name">Alex Johnson</div>
+                                    <div class="review-rating">
+                                        <span style="color: #fbbf24; font-size: 12px;">★★★★★</span>
+                                        <span style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-left: 6px;">2 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">This template has been a game-changer for our team's planning process. The timeline view makes it easy to see our progress at a glance.</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" class="review-avatar">
+                                <div style="flex: 1;">
+                                    <div class="review-author-name">Emma Davis</div>
+                                    <div class="review-rating">
+                                        <span style="color: #fbbf24; font-size: 12px;">★★★★★</span>
+                                        <span style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-left: 6px;">1 week ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">Perfect for managing complex projects. Love how customizable it is!</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="review-avatar">
+                                <div style="flex: 1;">
+                                    <div class="review-author-name">Michael Torres</div>
+                                    <div class="review-rating">
+                                        <span style="color: #fbbf24; font-size: 12px;">★★★★☆</span>
+                                        <span style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-left: 6px;">2 weeks ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">Great template overall. Would love to see more integration options in future updates.</p>
+                        </div>
+                    </div>
+                    <button class="reviews-more-btn" id="showAllReviewsBtn">More</button>
+                </div>
+                </div>
+                <!-- End settings sections wrapper -->
+            </div>
+        </aside>
+
+        <!-- Reviews Modal -->
+        <div class="reviews-modal-overlay" id="reviewsModalOverlay">
+            <div class="reviews-modal">
+                <div class="reviews-modal-header">
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: rgb(55, 53, 47);">Ratings & Reviews</h3>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #fbbf24; font-size: 16px;">★</span>
+                            <span style="font-size: 14px; font-weight: 500;">4.9</span>
+                            <span style="font-size: 13px; color: rgba(55, 53, 47, 0.5);">(1.2K reviews)</span>
+                        </div>
+                    </div>
+                    <button class="reviews-modal-close" id="closeReviewsModalBtn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 5L5 15M5 5L15 15" stroke="rgba(55, 53, 47, 0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="reviews-modal-content">
+                    <!-- Reviews will be repeated here -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" class="review-avatar">
+                            <div style="flex: 1;">
+                                <div class="review-author-name">Alex Johnson</div>
+                                <div class="review-rating">
+                                    <span style="color: #fbbf24; font-size: 12px;">★★★★★</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-left: 6px;">2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">This template has been a game-changer for our team's planning process. The timeline view makes it easy to see our progress at a glance.</p>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" class="review-avatar">
+                            <div style="flex: 1;">
+                                <div class="review-author-name">Emma Davis</div>
+                                <div class="review-rating">
+                                    <span style="color: #fbbf24; font-size: 12px;">★★★★★</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-left: 6px;">1 week ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">Perfect for managing complex projects. Love how customizable it is!</p>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="review-avatar">
+                            <div style="flex: 1;">
+                                <div class="review-author-name">Michael Torres</div>
+                                <div class="review-rating">
+                                    <span style="color: #fbbf24; font-size: 12px;">★★★★☆</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-left: 6px;">2 weeks ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">Great template overall. Would love to see more integration options in future updates.</p>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" class="review-avatar">
+                            <div style="flex: 1;">
+                                <div class="review-author-name">David Chen</div>
+                                <div class="review-rating">
+                                    <span style="color: #fbbf24; font-size: 12px;">★★★★★</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-left: 6px;">3 weeks ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">Excellent structure and very intuitive to use. Our entire product team has adopted this template.</p>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="review-avatar">
+                            <div style="flex: 1;">
+                                <div class="review-author-name">Sarah Martinez</div>
+                                <div class="review-rating">
+                                    <span style="color: #fbbf24; font-size: 12px;">★★★★★</span>
+                                    <span style="font-size: 11px; color: rgba(55, 53, 47, 0.5); margin-left: 6px;">1 month ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">This is exactly what we needed for our quarterly planning. The milestone tracking feature is incredibly useful.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="template-page-script.js"></script>
+</body>
+</html>
